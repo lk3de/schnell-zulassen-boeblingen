@@ -63,5 +63,3 @@ if __name__ == "__main__":
                 print(f"Found something in {locations[location]}!")
                 playsound(config.ALARM)
                 sys.exit(0)
-        print("test exit")
-        sys.exit(0)
