@@ -12,3 +12,7 @@ Um schneller an einen Termin zu gelangen, suchen wir mithilfe von Selenium autom
 
 - Dependencies installieren: `pip3 install -r requirements.txt`
 - Script starten: `python3 checker.py`
+
+## Credits
+
+- [schnell-zulassen-guetersloh](https://github.com/thoughtgap/schnell-zulassen-guetersloh) für die Inspiration beim Naming
