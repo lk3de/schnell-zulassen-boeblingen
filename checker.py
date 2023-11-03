@@ -14,6 +14,7 @@ if __name__ == "__main__":
     options = Options()
     options.add_argument("--start-maximized")
     options.add_experimental_option("detach", True)
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
     driver = webdriver.Chrome(options=options)
 
     # open URL
@@ -58,8 +59,9 @@ if __name__ == "__main__":
                 back_btn = driver.find_element(by=By.XPATH, value="/html/body/div[2]/div[2]/form/div[3]/div[5]/div/div[2]/button")
                 back_btn.click()
                 sleep(config.SLEEP)
-                sys.exit(0)
             else:
                 print(f"Found something in {locations[location]}!")
                 playsound(config.ALARM)
-                sys.exit(0)    
+                sys.exit(0)
+        print("test exit")
+        sys.exit(0)
