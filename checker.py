@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
             # check if appointments are available
             content = driver.find_element(by=By.ID, value="appointment_holder")
-            if "aktuelle sind alle verfügbaren Termine ausgebucht" in content.text:
+            if "aktuell sind alle verfügbaren Termine ausgebucht" in content.text:
                 print(f"Nothing found in {locations[location]}!")
                 sleep(config.SLEEP)
                 # go back to location overview page
