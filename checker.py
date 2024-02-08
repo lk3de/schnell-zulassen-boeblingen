@@ -2,6 +2,7 @@ import sys
 import json
 from time import sleep
 import config
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     next_btn.click()
 
     locations = {
-        "5013ee70-5ae3-4078-891d-8ca0cd600a2a": "Böblingen",
+        #"5013ee70-5ae3-4078-891d-8ca0cd600a2a": "Böblingen",
         #"e3b1e44c-0c3d-4bfa-8197-a44f69f0bc38": "Herrenberg",
         "c88d01a2-24c8-4c1c-8e99-eac41cc94b51": "Leonberg"
     }
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     while True:
         for location in locations:
             # click button for given location
-            print(f"Checking {locations[location]}...")
+            print(f"{datetime.now()} Checking {locations[location]}...")
             location_btn = driver.find_element(by=By.ID, value=location)
             location_btn.click()
 
@@ -53,13 +54,13 @@ if __name__ == "__main__":
             # check if appointments are available
             content = driver.find_element(by=By.ID, value="appointment_holder")
             if "aktuell sind alle verfügbaren Termine ausgebucht" in content.text:
-                print(f"Nothing found in {locations[location]}!")
+                print(f"{datetime.now()} Nothing found in {locations[location]}!")
                 sleep(config.SLEEP)
                 # go back to location overview page
                 back_btn = driver.find_element(by=By.XPATH, value="/html/body/div[2]/div[2]/form/div[3]/div[5]/div/div[2]/button")
                 back_btn.click()
                 sleep(config.SLEEP)
             else:
-                print(f"Found something in {locations[location]}!")
+                print(f"{datetime.now()} Found something in {locations[location]}!")
                 playsound(config.ALARM)
                 sys.exit(0)
